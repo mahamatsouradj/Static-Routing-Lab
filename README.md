@@ -20,14 +20,14 @@ Verify end-to-end connectivity between PCs across different subnets.
 ## 📊 IP Addressing Scheme
 
 | Device | Interface         | IP Address      | Subnet Mask       | Description        |
-|--------|------------------|-----------------|------------------|--------------------|
-| R1     | G0/0             | 192.168.1.1     | 255.255.255.0    | LAN 1              |
-| R1     | S0/0/0           | 10.0.12.1       | 255.255.255.252  | Link to R2         |
-| R2     | G0/0             | 192.168.2.1     | 255.255.255.0    | LAN 2              |
-| R2     | S0/0/0           | 10.0.12.2       | 255.255.255.252  | Link to R1         |
-| R2     | S0/0/1           | 10.0.23.2       | 255.255.255.252  | Link to R3         |
-| R3     | G0/0             | 192.168.3.1     | 255.255.255.0    | LAN 3              |
-| R3     | S0/0/0           | 10.0.23.3       | 255.255.255.252  | Link to R2         |
+|--------|------------------ |-----------------|------------------ |--------------------|
+| R1     | Fast0/0           | 192.168.1.1     | 255.255.255.0     | LAN 1              |
+| R1     | S2/0              | 10.0.12.1       | 255.255.255.252   | Link to R2         |
+| R2     | Fast0/0           | 192.168.2.1     | 255.255.255.0     | LAN 2              |
+| R2     | S3/0              | 10.0.12.2       | 255.255.255.252   | Link to R1         |
+| R2     | S2/0              | 10.0.23.2       | 255.255.255.252   | Link to R3         |
+| R3     | Fast0/0           | 192.168.3.1     | 255.255.255.0     | LAN 3              |
+| R3     | S3/0              | 10.0.23.3       | 255.255.255.252   | Link to R2         |
 
 ---
 
@@ -40,4 +40,14 @@ All router configs are saved in the [`configs/`](configs) folder:
 ---
 
 ## ✅ Verification
-1. **Check interfaces**  
+1. **Check interfaces**
+![Interfaces](images/show-ip-int-brief.png)
+
+2. **Check routing tables**  
+![Routing Table](images/show-ip-route.png)
+
+3. **Ping tests**  
+- PC1 → PC2  
+- PC1 → PC3  
+![Ping Test](images/ping.png)
+
