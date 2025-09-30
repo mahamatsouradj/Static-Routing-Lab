@@ -1,0 +1,7 @@
+interface Fast0/0
+ ip address 192.168.3.1 255.255.255.0
+ no shutdown
+interface S3/0
+ ip address 10.0.23.3 255.255.255.252
+ no shutdown
+ip route 0.0.0.0 0.0.0.0 10.0.23.2
